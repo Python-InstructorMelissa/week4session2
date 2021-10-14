@@ -12,13 +12,16 @@
     <nav>
         <a href="/">Home</a>
         <a href="/parks">Parks</a>
+        <a href="/clear"><button>Clear</button></a>
     </nav>
     <main>
-        <form action="/addPark" method='post'>
-            <label for="parkName">Name: </label>
-            <input type="text" name='parkName'>
-            <button>Submit</button>
-        </form>
+        <h1>{{session['park']}}</h1>
+        {% for a in animals %}
+            <div class="animals">
+                <h3>{{a.species}}</h3>
+                <h3>{{a.animalName}}</h3>
+            </div>
+        {% endfor %}
     </main>
 </body>
 </html>
