@@ -17,20 +17,7 @@
         </nav>
     </header>
     <main>
-        <form action="/choseUser/" method='post'>
-            <label for="firstName"> Chose User</label>
-            <select name="firstName">
-                {% for u in users %}
-                    <option value="{{u.firstName}}">{{u.firstName}}</option>
-                {% endfor %}
-            </select>
-            <button>Submit User</button>
-        </form>
-        <form action="/createDrink/" method='post'>
-            <label for="drink">Drink Name: </label>
-            <input type="text" name="drink">
-            <button>Submit Drink</button>
-        </form>
+        <h1>You chose {{session['firstName']}}</h1>
     </main>
 </body>
 </html>

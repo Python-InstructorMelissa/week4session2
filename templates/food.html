@@ -17,20 +17,23 @@
         </nav>
     </header>
     <main>
-        <form action="/choseUser/" method='post'>
-            <label for="firstName"> Chose User</label>
-            <select name="firstName">
-                {% for u in users %}
-                    <option value="{{u.firstName}}">{{u.firstName}}</option>
-                {% endfor %}
-            </select>
-            <button>Submit User</button>
-        </form>
-        <form action="/createDrink/" method='post'>
-            <label for="drink">Drink Name: </label>
-            <input type="text" name="drink">
-            <button>Submit Drink</button>
-        </form>
+        
+        <h1>Here are all our Foods</h1>
+        <table>
+            <tr>
+                <th>Meal Name</th>
+            </tr>
+            {% for food in foods %}
+                <tr>
+                    <td>{{food.meal}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% if session['drink'] %}
+            <h2>{{session['firstName']}} Created a drink called {{session['drink']}}</h2>
+        {% else %}
+            <h2>{{session['firstName']}} has not created a drink yet</h2>
+        {% endif %}
     </main>
 </body>
 </html>
