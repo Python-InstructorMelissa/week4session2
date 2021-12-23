@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Choose your own adventure game</title>
+</head>
+<body>
+    <header>
+        <h1>Cooking up a meal</h1>
+        <nav>
+            {% block menu %}
+                {% include 'menu.html' %}
+            {% endblock menu %}
+        </nav>
+    </header>
+    <main>
+        <h1>After checking around you find stuff to make {{food.meal}}</h1>
+        <h3>You are sure to make sure that there will be enough for {{user.firstName}} when they arrive.  After wards what do you decide to do?</h3>
+        <nav>
+            <a href="/garage/">Go to Garage</a>
+            <a href="/hallway/">Hallway</a>
+            <a href="/livingroom/">Go to Living Room</a>
+            <a href="/kitchen/">Head to the Kitchen</a>
+        </nav>
+    </main>
+</body>
+</html>

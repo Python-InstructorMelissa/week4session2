@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Choose your own adventure game</title>
+</head>
+<body>
+    <header>
+        <h1>TV Time</h1>
+        <nav>
+            {% block menu %}
+                {% include 'menu.html' %}
+            {% endblock menu %}
+        </nav>
+    </header>
+    <main>
+        
+        <h2>Unfortunately {{user.firstName}}'s TV seems to be stuck on 1 channel so you are stuck watching {{tvshow.title}}</h2>
+        <p>However you always have a choice.  Hang out and watch {{tvshow.title}}, check what is down the hallway or see what is in the kitchen</p>
+        <nav>
+            <a href="/tv/">Stay and Watch TV</a>
+            <a href="/hallway/">Go down the hall</a>
+            <a href="/kitchen/">Head to the Kitchen</a>
+        </nav>
+    </main>
+</body>
+</html>

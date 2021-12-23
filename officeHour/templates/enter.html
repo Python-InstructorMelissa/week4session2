@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Choose your own adventure game</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to {{user.firstName}}'s Home</h1>
+        <nav>
+            {% block menu %}
+                {% include 'menu.html' %}
+            {% endblock menu %}
+        </nav>
+    </header>
+    <main>
+        <h1>{{user.firstName}} said that {{user.altPronoun}} is going to be a bit late but to make yourself at home</h1>
+        <p>From this point of view you have 3 choices. Take a look around the living room, look down the hallway, or enter the kitchen.  Which to you chose?</p>
+        <nav>
+            <a href="/livingroom/">Go to livingroom</a>
+            <a href="/hallway/">Go down the hall</a>
+            <a href="/kitchen/">Head to the Kitchen</a>
+        </nav>
+    </main>
+</body>
+</html>

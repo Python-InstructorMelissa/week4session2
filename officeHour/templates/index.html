@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Choose your own adventure game</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to your Flask Adventure</h1>
+        <nav>
+            {% block menu %}
+                {% include 'menu.html' %}
+            {% endblock menu %}
+        </nav>
+    </header>
+    <main>
+        <h1>Lets get the games started</h1>
+        <p>You have been dropped off at {{user.firstName}}'s home.  You have never been here before.  You are presented with 2 choices.  Enter the home or turn around and leave.  Which do you chose?</p>
+        <nav>
+            <a href="/enter/">Enter {{user.firstName}}'s Home</a>
+            <a href="/exit/">Turn around and leave</a>
+        </nav>
+    </main>
+</body>
+</html>
