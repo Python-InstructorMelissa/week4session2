@@ -24,7 +24,9 @@ def createUser():
 
 @app.route('/movies/')
 def movies():
-    if 'title' not in session:
+    # session['title']
+    # if not session['title']:  # this is how we ended class
+    if 'title' not in session: # this is what it should have been
         return render_template('movies.html')
     else:
         data = session['title']
@@ -36,6 +38,7 @@ def logout():
     session.clear()
     return redirect('/')
 
+# This is what will clear just the movie list
 @app.route('/reset/')
 def reset():
     session.pop('title')
