@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Our Flask </title>
+</head>
+<body>
+    <h1>What's cooking class?</h1>
+    <nav>
+        {% block menu %} {% include 'menu.html' %} {% endblock menu %}
+    </nav>
+    <main>
+        <div class="column">
+            <table>
+                <tr>
+                    <th>Squishy Name</th>
+                    <th>Squishy ID #</th>
+                </tr>
+                {% for squishy in squishies %}
+                    <tr>
+                        <td>{{squishy.name}}</td>
+                        <td>{{squishy.id}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <table>
+                <tr>
+                    <th>Tune Name</th>
+                    <th>Birthday</th>
+                    <th>Spouse</th>
+                </tr>
+                {% for tune in tunes %}
+                    <tr>
+                        <td>{{tune.name}}</td>
+                        <td>{{tune.birthDay}}</td>
+                        <td>{{tune.spouse}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </main>
+</body>
+</html>

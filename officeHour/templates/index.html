@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Our Flask </title>
+</head>
+<body>
+    <h1>What's cooking class?</h1>
+    <nav>
+        {% block menu %} {% include 'menu.html' %} {% endblock menu %}
+    </nav>
+    <main>
+        <!-- the for loop is saying for 1 entry in the list please display the following.  Here we use a div so that each entries data is grouped inside a div that we can style to keep it separate -->
+        {% for squishy in squishies %}
+            <div class="column">
+                <h3>{{squishy.name}}</h3>
+                <img src="{{squishy.img}}" alt="{{squishy.name}}">
+            </div>
+        {% endfor %}
+        <!-- For loops and if statements will ALWAYS need a endif, endfor  Anything directly displaying data just needs {{}} -->
+        {% for tune in tunes %}
+            <div class="column">
+                <h3>{{tune.name}}</h3>
+                <img src="{{tune.img}}" alt="{{tune.name}}">
+                <h4>{{tune.birthDay}}</h4>
+            </div>
+        {% endfor %}
+    </main>
+</body>
+</html>

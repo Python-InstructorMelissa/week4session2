@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Movies</title>
+</head>
+<body>
+    <header>
+        <div class="row">
+            <h1>Welcome, {{session['name']}}</h1>
+            <button><a href="/logout/">Logout</a></button>
+        </div>
+        <nav>
+            {% block menu %} {% include 'menu.html' %} {% endblock menu %}
+        </nav>
+    </header>
+    <main>
+        <form action="/createMovie/", method='post'>
+            <section>
+                <label for="title">Movie Title:</label>
+                <input type="text" name="title">
+            </section>
+            <button>Submit</button>
+        </form>
+        <h3>History of Movies Entered:</h3>
+        <div class="box">
+            <h4>You just entered: {{session.title}}</h4>
+            {% for movie in movieList %}
+                <h4>{{movie}}</h4>
+            {% endfor %}
+        </div>
+        <button><a href="/reset/">Reset Movies</a></button>
+    </main>
+</body>
+</html>
