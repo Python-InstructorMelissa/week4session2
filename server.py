@@ -24,8 +24,7 @@ def createUser():
 
 @app.route('/movies/')
 def movies():
-    session['title']
-    if not session['title']:
+    if 'title' not in session:
         return render_template('movies.html')
     else:
         data = session['title']
@@ -36,6 +35,11 @@ def movies():
 def logout():
     session.clear()
     return redirect('/')
+
+@app.route('/reset/')
+def reset():
+    session.pop('title')
+    return redirect('/movies/')
 
 @app.route('/createMovie/', methods=['POST'])
 def createMovie():
